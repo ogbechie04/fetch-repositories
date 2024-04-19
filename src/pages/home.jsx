@@ -48,7 +48,7 @@ function dateOnly(dateTime) {
 // Rendering the repos on the DOM
   const repoDisplay = user.map((repo) => {
     return (
-      <Card className="repo-card" key={repo.name}>
+      <Card className="repo-card" key={repo.id}>
         <Link to={`/repoDetails/${repo.name}`}><Heading className="repo-name">{repo.name}</Heading></Link>
         <Text className="created_by">Created: {dateOnly(repo.created_at)}</Text>
         <Text className="language">Langauge: {repo.language}</Text>

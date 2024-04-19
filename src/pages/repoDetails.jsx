@@ -16,12 +16,11 @@ function RepoDetails() {
   const { id } = useParams();
   const [repoInfo, setRepoInfo] = useState({});
 
-  console.log(repoInfo);
   useEffect(() => {
-    fetch(`https://api.github.com/repos/ogbechie04/${name}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setRepoInfo(data);
+    fetch(`https://api.github.com/repos/ogbechie04/${id}`)
+      .then((getRepos) => getRepos.json())
+      .then((repoList) => {
+        setRepoInfo(repoList);
       })
       .catch((error) => {
         console.error("Error fetching repository information:", error);
@@ -45,7 +44,11 @@ function RepoDetails() {
             </Tr>
             <Tr>
               <Td>Description</Td>
-              <Td>{repoInfo.description}</Td>
+              <Td>
+                {repoInfo.description
+                  ? repoInfo.description
+                  : "No description provided"}
+              </Td>
             </Tr>
             <Tr>
               <Td>Language</Td>
@@ -57,15 +60,15 @@ function RepoDetails() {
             </Tr>
             <Tr>
               <Td>Owner</Td>
-              <Td>{repoInfo.owner}</Td>
+              <Td>{repoInfo.owner?.login}</Td>
             </Tr>
             <Tr>
               <Td>Created At</Td>
-              <Td>{repoInfo.created_at}</Td>
+              <Td>{dateOnly (repoInfo.created_at)}</Td>
             </Tr>
             <Tr>
               <Td>Last Updated</Td>
-              <Td>{repoInfo.updated_at}</Td>
+              <Td>{dateOnly (repoInfo.updated_at)}</Td>
             </Tr>
             <Tr>
               <Td>Issues</Td>
@@ -85,7 +88,7 @@ function RepoDetails() {
             </Tr>
             <Tr>
               <Td>Archived</Td>
-              <Td>{repoInfo.archived}</Td>
+              <Td>{repoInfo.archived ? "Yes" : "No"}</Td>
             </Tr>
           </Tbody>
         </Table>
@@ -95,6 +98,13 @@ function RepoDetails() {
       </Button>
     </>
   );
+
+  // Function for returning only the date without time
+function dateOnly(dateTime) {
+    const date = new Date(dateTime)
+    return date.toLocaleDateString('en-NG')
+}
+
 }
 
 export default RepoDetails;
