@@ -3,7 +3,7 @@ import {
   Text,
   Card,
   Heading,
-  // Box,
+  Box,
   Container,
   Avatar,
   Flex,
@@ -12,11 +12,9 @@ import {
 
 function App() {
   return (
-    // Flex for two cards. One for Profile details and other for repo list
-    <Flex direction={"row"}gap="10">
-      {/* Card for profile */}
-      <Card>
-        <Flex spacing="4" direction={"row"}>
+    // Container for Avatar and writeup. Remains on the page even in an error
+      <Container>
+        <Flex direction={"row"} gap="20" justify={"center"} wrap={"wrap"}>
           {/* Avatar for dp */}
           <Avatar
             name="Laura Ogbechie"
@@ -27,29 +25,16 @@ function App() {
             border={"4px solid lightgrey"}
           ></Avatar>
           {/* Box for profile details */}
-          <Container display={'flex'} flexDirection={'column'}>
-          <Heading p={"4"} textAlign={"Left"} m={"unset"} mt={"20px"}>
-            Ogbechie Laura
-          </Heading>
-          <Text textAlign={"left"} m={"unset"} px={4} size={"lg"}>
-            Ogbechie_04 ! She/her{" "}
-          </Text>
-          <Button
-            mt={20}
-            py={7}
-            fontSize={13}
-            border={"1px solid lightgrey"}
-            borderRadius={5}
-          >
-            Edit Profile
-          </Button>
-          <Text textAlign={"left"} my={10} px={4} size={"sm"}>
-            ogbechielaura04@gmail.com
-          </Text>
-          </Container>
+          <Box display={'flex'} flexDirection={'column'}>
+            <Heading as={'h1'} fontSize='50' p={"4"} textAlign={"center"} m={"unset"} mt={"20px"} fontWeight={600}>
+            Ogbechie's Repository
+            </Heading>
+            <Text textAlign={"left"} m={"unset"} px={4} py={10} size={"lg"}>
+            Hi there! My name's Ogbechie Laura. Frontend Dev on her way to Fullstack and this is the list of my repositories.
+            </Text>
+          </Box>
         </Flex>
-      </Card>
-    </Flex>
+      </Container>
   );
 }
 

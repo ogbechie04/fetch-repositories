@@ -18,7 +18,6 @@ function ErrorBoundaryWrapper({ children }) {
   return <ErrorBoundary FallbackComponent={Fallback}>{children}</ErrorBoundary>;
 }
 
-// Create the router with routes wrapped in the ErrorBoundaryWrapper
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -45,7 +44,7 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
     <RouterProvider router={router} />
   </React.StrictMode>
 );
