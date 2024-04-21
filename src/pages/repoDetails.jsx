@@ -30,8 +30,8 @@ function RepoDetails() {
   return (
     <>
       <TableContainer>
-        <Table>
-          <Thead>
+        <Table color={'#2B6CB0'}>
+          <Thead color={'#2B6CB0'}>
             <Tr>
               <Th>Description</Th>
               <Th>Data</Th>
@@ -68,7 +68,7 @@ function RepoDetails() {
             </Tr>
             <Tr>
               <Td>Last Updated</Td>
-              <Td>{dateOnly (repoInfo.updated_at)}</Td>
+              <Td>{dateOnly (repoInfo.updated_at) }</Td>
             </Tr>
             <Tr>
               <Td>Issues</Td>
