@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sedan:ital@0;1&display=swap');
+
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: "Open Sans";
+}
+
+/* Styling for Pagination List */
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.page-item {
+  color: rgba(0, 0, 0, 0.659);
+  font-weight: bolder;
+  margin-inline-end: 8px;
+  border: 2px solid rgba(211, 211, 211, 0.628);
+  padding-inline: 12px;
+  padding-block: 2px;
+  border-radius: 5px;
+}
+
+.page-item:hover {
+  color: #805AD5;
+  border: 2px solid #805AD5;
+  background-color: #fff;
+}
+
+.active {
+  background-color: rgba(211, 211, 211, 0.628);
+}

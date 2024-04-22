@@ -1,4 +1,4 @@
-// import "../css/index.css";
+import "../../src/css/index.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -58,7 +58,19 @@ function Home() {
   const repoDisplay = user.map((repo) => {
     return (
       <Link to={`/repoDetails/${repo.name}`} key={repo.id}>
-        <Card variant={"outline"} p={4} textAlign={"left"} bgGradient={'linear(43deg, purple.500 0%, pink.300 46%, yellow.300 100%)'} color={'white'}>
+        <Card
+          variant={"outline"}
+          p={4}
+          textAlign={"left"}
+          bgGradient={
+            "linear(43deg, purple.500 0%, pink.300 46%, yellow.300 100%)"
+          }
+          color={"white"}
+          _hover={{
+            boxShadow: "0 2px 20px #23232333",
+            // transform: "translateY(-5%)",
+          }}
+        >
           <CardHeader>
             <Heading as={"h2"} fontSize={"2xl"}>
               {repo.name}
@@ -74,7 +86,7 @@ function Home() {
     );
   });
 
-  //   Pagination rendering
+  //  Cards display and Pagination rendering
   return (
     <>
       <SimpleGrid
@@ -92,8 +104,11 @@ function Home() {
         onPageChange={handlePageClick}
         containerClassName="pagination"
         activeClassName="active"
-        previousLabel="< previous"
-        nextLabel="next >"
+        pageClassName="page-item"
+        previousClassName="page-item"
+        nextClassName="page-item"
+        previousLabel="<"
+        nextLabel=">"
       />
     </>
   );

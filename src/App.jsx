@@ -1,4 +1,4 @@
-import "./App.css";
+import "../src/css/index.css";
 import {
   Text,
   Heading,
@@ -33,13 +33,13 @@ function App() {
             <Text as={"b"} fontSize={"md"} py={3}>
             Here's a quick summary about me:
             </Text>
-            <Text fontSize={"md"}>
+            <Text fontSize={"md"} py={1.25}>
             <Text as={'b'}>Pronouns:</Text> She/Her
             </Text>
-            <Text fontSize={"md"}>
-            <Text as={'b'}>Goals:</Text> To one of the top recognized-worldwide Fullstack Dev.
+            <Text fontSize={"md"} py={1.25}>
+            <Text as={'b'}>Goals:</Text> To be one of the top recognized-worldwide Fullstack Dev.
             </Text>
-            <Text fontSize={"md"}>
+            <Text fontSize={"md"} py={1.25}>
             I'm currently learning and building projects with JavaScript, React, Chakra-UI, Tailwind CSS.
             </Text>
           </Card>
