@@ -12,17 +12,13 @@ import {
   Container,
 } from "@chakra-ui/react";
 import ReactPaginate from "react-paginate";
-import Fallback from "./errorBoundary";
-import { ErrorBoundary } from "react-error-boundary";
 
 function Home() {
   const [user, setUser] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-//   const [showErrorTest, setShowErrorTest] = useState(false);
   const reposPerPage = 6;
 
-  //   Function for getting the repos using the github API
   const fetchRepos = () => {
     fetch(
       `https://api.github.com/users/ogbechie04/repos?per_page=${reposPerPage}&page=${currentPage}`
@@ -61,28 +57,10 @@ function Home() {
 
   // Function to trigger the error test
   const triggerErrorTest = () => {
-    setShowErrorTest(true);
+    const obj = undefined;
+    console.log(obj.property); // Intentionally throw an error
+    return <div>Home Page</div>;
   };
-
-  // Function to reset the error test
-  const resetErrorTest = () => {
-    setShowErrorTest(false);
-  };
-
-  // ComponentThatThrows definition remains unchanged
-  const ComponentThatThrows = () => {
-    throw new Error("This is a test error");
-  };
-  // Conditional rendering based on showErrorTest state
-  if (showErrorTest) {
-    // Render only the ErrorBoundary and the button to reset the test
-    return (
-      <ErrorBoundary FallbackComponent={Fallback}>
-        <Button onClick={resetErrorTest}>Reset Error Test</Button>
-        <ComponentThatThrows />
-      </ErrorBoundary>
-    );
-  }
 
   // Rendering the repos on the DOM
   const repoDisplay = user.map((repo) => {
@@ -129,11 +107,38 @@ function Home() {
         {repoDisplay}
       </SimpleGrid>
 
-      <Container display={"flex"} justifyContent={"center"} alignItems={"center"} gap={5} mb={10}>
-        <Button colorScheme='purple' _hover={{border: '2px solid purple', background: "white", color: 'purple', transition: '500ms'}} verticalAlign={"left"} onClick={triggerErrorTest}>
-          Test Error Boundary
+      <Container
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        gap={5}
+        mb={10}
+      >
+        <Button
+          colorScheme="purple"
+          _hover={{
+            border: "2px solid purple",
+            background: "white",
+            color: "purple",
+            transition: "500ms",
+          }}
+          onClick={triggerErrorTest}
+        >
+          Trigger Error
         </Button>
-        <Button colorScheme='purple' _hover={{border: '2px solid purple', background: "white", color: 'purple', transition: '500ms'}} as={Link} to={"/thispagedoesnotexist"}>Test 404 Page</Button>
+        <Button
+          colorScheme="purple"
+          _hover={{
+            border: "2px solid purple",
+            background: "white",
+            color: "purple",
+            transition: "500ms",
+          }}
+          as={Link}
+          to={"/thispagedoesnotexist"}
+        >
+          Test 404 Page
+        </Button>
       </Container>
 
       <ReactPaginate

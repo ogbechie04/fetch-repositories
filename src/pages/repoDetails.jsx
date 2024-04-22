@@ -37,7 +37,7 @@ function RepoDetails() {
         mt={20}
       >
         <Table size={"lg"} maxW={12.5} variant={"striped"} colorScheme="purple">
-          <TableCaption fontSize={'lg'}>Ogbechie's Repositories</TableCaption>
+          <TableCaption fontSize={'lg'}><Link to={repoInfo.html_url}>View on Github</Link></TableCaption>
           <Thead>
             <Tr>
               <Th bgColor={"purple.500"} fontSize={"xl"} color={"white"}>
@@ -104,7 +104,7 @@ function RepoDetails() {
           </Tbody>
         </Table>
       </TableContainer>
-      <Button colorScheme='purple' _hover={{border: '2px solid purple', background: "white", color: 'purple', transition: '500ms'}}>
+      <Button colorScheme='purple' _hover={{border: '2px solid purple', background: "white", color: 'purple', transition: '500ms'}} mt={3}>
         <Link to={`/`}>Go home</Link>
       </Button>
     </>

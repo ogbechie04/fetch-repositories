@@ -1,4 +1,3 @@
-import React from "react";
 import { Text, Button, Heading, Container } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
