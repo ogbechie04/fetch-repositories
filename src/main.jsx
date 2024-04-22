@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ChakraProvider } from "@chakra-ui/react";
 import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  Routes,
 } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import App from "./App";
@@ -44,7 +44,9 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={router} />
+    <ChakraProvider>
+      <App />
+      <RouterProvider router={router} />
+    </ChakraProvider>
   </React.StrictMode>
 );

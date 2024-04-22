@@ -1,40 +1,49 @@
 import "./App.css";
 import {
   Text,
-  Card,
   Heading,
-  Box,
-  Container,
+  Card,
   Avatar,
   Flex,
-  Button,
+  Divider
+
 } from "@chakra-ui/react";
 
 function App() {
   return (
     // Container for Avatar and writeup. Remains on the page even in an error
-      <Container>
-        <Flex direction={"row"} gap="20" justify={"center"} wrap={"wrap"}>
+        <Flex gap="10" justify={"center"} wrap={"wrap"}>
           {/* Avatar for dp */}
           <Avatar
             name="Laura Ogbechie"
             src="../src/assets/vlcsnap-2022-10-26-22h16m20s453.png"
-            borderRadius={"50%"}
             w={"300px"}
             h={"300px"}
-            border={"4px solid lightgrey"}
+            border={"2px solid lightgrey"}
           ></Avatar>
-          {/* Box for profile details */}
-          <Box display={'flex'} flexDirection={'column'}>
-            <Heading as={'h1'} fontSize='50' p={"4"} textAlign={"center"} m={"unset"} mt={"20px"} fontWeight={600}>
+          {/* Card for profile details */}
+          <Card display={'flex'} flexDirection={'column'} variant={'outline'} p={5} textAlign={"left"}>
+            <Heading as={'h1'} fontSize='50' textAlign={"left"} m={"unset"} mt={"20px"} fontWeight={600} fontFamily={"Sedan"}>
             Ogbechie's Repository
             </Heading>
-            <Text textAlign={"left"} m={"unset"} px={4} py={10} size={"lg"}>
+            <Divider my={2.5}></Divider>
+            <Text fontSize={"md"}>
             Hi there! My name's Ogbechie Laura. Frontend Dev on her way to Fullstack and this is the list of my repositories.
             </Text>
-          </Box>
+            <Text as={"b"} fontSize={"md"} py={3}>
+            Here's a quick summary about me:
+            </Text>
+            <Text fontSize={"md"}>
+            <Text as={'b'}>Pronouns:</Text> She/Her
+            </Text>
+            <Text fontSize={"md"}>
+            <Text as={'b'}>Goals:</Text> To one of the top recognized-worldwide Fullstack Dev.
+            </Text>
+            <Text fontSize={"md"}>
+            I'm currently learning and building projects with JavaScript, React, Chakra-UI, Tailwind CSS.
+            </Text>
+          </Card>
         </Flex>
-      </Container>
   );
 }
 
