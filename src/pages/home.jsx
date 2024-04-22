@@ -1,7 +1,14 @@
 // import "../css/index.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Text, Card, Heading, Container, SimpleGrid } from "@chakra-ui/react";
+import {
+  Text,
+  Card,
+  Heading,
+  SimpleGrid,
+  CardHeader,
+  CardBody,
+} from "@chakra-ui/react";
 import ReactPaginate from "react-paginate";
 
 function Home() {
@@ -50,34 +57,34 @@ function Home() {
   // Rendering the repos on the DOM
   const repoDisplay = user.map((repo) => {
     return (
-      <Card
-        key={repo.id}
-        variant={"elevated"}
-        color={"#F56565"}
-        mx={10}
-        my={10}
-      >
-        <Link to={`/repoDetails/${repo.name}`}>
-          <Heading color="blue">{repo.name}</Heading>
-        </Link>
-        <Text>Created: {dateOnly(repo.created_at)}</Text>
-        <Text>Langauge: {repo.language}</Text>
-        <Text>Stars: {repo.stargazers_count}</Text>
-      </Card>
+      <Link to={`/repoDetails/${repo.name}`} key={repo.id}>
+        <Card variant={"outline"} p={4} textAlign={"left"} bgGradient={'linear(43deg, purple.500 0%, pink.300 46%, yellow.300 100%)'} color={'white'}>
+          <CardHeader>
+            <Heading as={"h2"} fontSize={"2xl"}>
+              {repo.name}
+            </Heading>
+          </CardHeader>
+          <CardBody>
+            <Text>Created: {dateOnly(repo.created_at)}</Text>
+            <Text>Langauge: {repo.language}</Text>
+            <Text>Stars: {repo.stargazers_count}</Text>
+          </CardBody>
+        </Card>
+      </Link>
     );
   });
 
   //   Pagination rendering
   return (
     <>
-      {/* <Container className="repo-container"> */}
-        <SimpleGrid
-          spacing={4}
-          templateColumns="repeat(auto-fill, minmax(400px, 1fr))"
-        >
-          {repoDisplay}
-        </SimpleGrid>
-      {/* </Container> */}
+      <SimpleGrid
+        spacing={5}
+        templateColumns="repeat(auto-fill, minmax(400px, 1fr))"
+        my={14}
+      >
+        {repoDisplay}
+      </SimpleGrid>
+
       <ReactPaginate
         pageCount={totalPages}
         pageRangeDisplayed={4}
