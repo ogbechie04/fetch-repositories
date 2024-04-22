@@ -1,8 +1,31 @@
-# React + Vite
+# ALT School Second Semester Exam
+## Implement a Web App using GitHub API to fetch your GitHub repositories portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Create a Web App using GitHub API to fetch your GitHub repositories portfolio with pagination enabled. Then create another page showing data for a single repo when clicked from the page. Show all repos using nested routes while using all the necessary tools in React. Implement an Error Boundary and a 404 page showing pages to test the 404 page and error boundary.
 
-Currently, two official plugins are available:
+### Screenshot
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![](./src/assets/Screenshot%202024-04-22-1png.png)
+![](./src/assets/Screenshot%202024-04-22%20-3.png)
+
+### Links
+
+- Solution URL: [Github Repository](https://github.com/ogbechie04/fetch-repositories)
+- Live Site URL: [Live Site](https://fetch-repositories-rgdn.vercel.app/)
+
+## My process
+
+### Built with
+
+- [React](https://reactjs.org/) - JS library
+- [Styled Components](https://styled-components.com/) - For styles
+- Chakra-UI
+- CSS custom properties
+- Flexbox
+- CSS Grid
+
+## Author
+
+- Website - [Ogbechie Laura](https://vercel.com/ogbechie04s-projects)
+
