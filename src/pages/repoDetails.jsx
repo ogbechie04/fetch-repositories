@@ -10,6 +10,7 @@ import {
   Td,
   TableContainer,
   Button,
+  TableCaption,
 } from "@chakra-ui/react";
 
 function RepoDetails() {
@@ -29,12 +30,22 @@ function RepoDetails() {
 
   return (
     <>
-      <TableContainer>
-        <Table color={'#2B6CB0'}>
-          <Thead color={'#2B6CB0'}>
+      <TableContainer
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        mt={20}
+      >
+        <Table size={"lg"} maxW={12.5} variant={"striped"} colorScheme="purple">
+          <TableCaption fontSize={'lg'}>Ogbechie's Repositories</TableCaption>
+          <Thead>
             <Tr>
-              <Th>Description</Th>
-              <Th>Data</Th>
+              <Th bgColor={"purple.500"} fontSize={"xl"} color={"white"}>
+                Description
+              </Th>
+              <Th bgColor={"purple.500"} fontSize={"xl"} color={"white"}>
+                Data
+              </Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -64,11 +75,11 @@ function RepoDetails() {
             </Tr>
             <Tr>
               <Td>Created At</Td>
-              <Td>{dateOnly (repoInfo.created_at)}</Td>
+              <Td>{dateOnly(repoInfo.created_at)}</Td>
             </Tr>
             <Tr>
               <Td>Last Updated</Td>
-              <Td>{dateOnly (repoInfo.updated_at) }</Td>
+              <Td>{dateOnly(repoInfo.updated_at)}</Td>
             </Tr>
             <Tr>
               <Td>Issues</Td>
@@ -93,18 +104,17 @@ function RepoDetails() {
           </Tbody>
         </Table>
       </TableContainer>
-      <Button>
+      <Button colorScheme='purple' _hover={{border: '2px solid purple', background: "white", color: 'purple', transition: '500ms'}}>
         <Link to={`/`}>Go home</Link>
       </Button>
     </>
   );
 
   // Function for returning only the date without time
-function dateOnly(dateTime) {
-    const date = new Date(dateTime)
-    return date.toLocaleDateString('en-NG')
-}
-
+  function dateOnly(dateTime) {
+    const date = new Date(dateTime);
+    return date.toLocaleDateString("en-NG");
+  }
 }
 
 export default RepoDetails;
